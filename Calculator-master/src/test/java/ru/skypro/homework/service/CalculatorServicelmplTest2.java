@@ -23,6 +23,20 @@ public class CalculatorServicelmplTest2 {
 
         Assertions.assertEquals(expected, result);
     }
+    @MethodSource("multiplyTest")
+    @ParameterizedTest
+    public void multiplyTest (int num1, int num2, int expected) {
+        int result = calculatorService.subtract(num1, num2);
+
+        Assertions.assertEquals(expected, result);
+    }
+    @MethodSource("divideTest")
+    @ParameterizedTest
+    public void divideTest (int num1, int num2, int expected) {
+        int result = calculatorService.subtract(num1, num2);
+
+        Assertions.assertEquals(expected, result);
+    }
 
     private static Stream<Arguments> sumTest(){
         return Stream.of(
@@ -36,6 +50,18 @@ public class CalculatorServicelmplTest2 {
         return Stream.of(
                 Arguments.of(2,2,0),
                 Arguments.of(10,9,1)
+        );
+    }
+    private static Stream<Arguments> multiplyTest(){
+        return Stream.of(
+                Arguments.of(2,2,4),
+                Arguments.of(2,3,6)
+        );
+    }
+    private static Stream<Arguments> divideTest(){
+        return Stream.of(
+                Arguments.of(4,2,2),
+                Arguments.of(10,2,5)
         );
     }
 
